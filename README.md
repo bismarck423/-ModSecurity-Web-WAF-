@@ -3,10 +3,10 @@
 # 实验报告：基于 ModSecurity (WAF) 的 Web 攻击防护实战
 
 ## 1. 实验目标 🎯
-* [cite_start]在 Ubuntu 18.04 上部署基础 Web 环境（Apache + PHP） [cite: 3, 16]。
-* [cite_start]安装并配置 ModSecurity (WAF) 引擎 [cite: 4, 20]。
-* [cite_start]使用 OWASP 核心规则集 (CRS) 拦截 SQL 注入等常见 Web 攻击 [cite: 5, 29]。
-* [cite_start]通过 Wireshark 抓包分析攻击请求与拦截响应 [cite: 6, 31]。
+* 在 Ubuntu 18.04 上部署基础 Web 环境（Apache + PHP）。
+* 安装并配置 ModSecurity (WAF) 引擎 [cite: 4, 20]。
+* 使用 OWASP 核心规则集 (CRS) 拦截 SQL 注入等常见 Web 攻击 。
+* 通过 Wireshark 抓包分析攻击请求与拦截响应 。
 
 
 ## 2. 网络拓扑 🌐
@@ -17,22 +17,22 @@
 
 | 节点名称 | 角色 | IP 地址 |
 | :--- | :--- | :--- |
-| **Kali** | 攻击机 | [cite_start]192.168.113.131 [cite: 8] |
-| **Ubuntu** | Web 服务器 | [cite_start]192.168.113.132 [cite: 9] |
-| **ASAv** | 安全网关 | 202.100.1.254 (Outside) / 192.168.1.254 (Inside) [根据图片内容] |
+| **Kali** | 攻击机 | 192.168.113.131  |
+| **Ubuntu** | Web 服务器 | 192.168.113.132  |
+| **ASAv** | 安全网关 | 202.100.1.254 (Outside) / 192.168.1.254 (Inside) |
 
 ---
 
 ## 3. 实验过程 🛠️
 
 ### A. Web 环境与 WAF 安装
-[cite_start]首先在 Ubuntu 上安装 Apache 和 PHP 环境，并加载安全模块 [cite: 15, 16]：
+首先在 Ubuntu 上安装 Apache 和 PHP 环境，并加载安全模块 ：
 ```bash
 # 安装 Apache, PHP 及 ModSecurity 模块
-[cite_start]apt install apache2 php7.2 libapache2-mod-php7.2 libapache2-mod-security2 -y [cite: 16, 20]
+apt install apache2 php7.2 libapache2-mod-php7.2 libapache2-mod-security2 -y 
 # 启用安全模块
-[cite_start]a2enmod security2 [cite: 21]
-[cite_start]systemctl restart apache2 [cite: 17]
+a2enmod security2 
+systemctl restart apache2 
 
 ```
 
@@ -42,9 +42,9 @@
 
 ```bash
 # 初始化配置文件
-[cite_start]cp /etc/modsecurity/modsecurity.conf-recommended /etc/modsecurity/modsecurity.conf [cite: 24]
+cp /etc/modsecurity/modsecurity.conf-recommended /etc/modsecurity/modsecurity.conf 
 # 修改引擎状态为 On
-[cite_start]sed -i 's/SecRuleEngine DetectionOnly/SecRuleEngine On/' /etc/modsecurity/modsecurity.conf [cite: 25]
+sed -i 's/SecRuleEngine DetectionOnly/SecRuleEngine On/' /etc/modsecurity/modsecurity.conf 
 
 ```
 
@@ -56,7 +56,7 @@
 
 ```bash
 # 攻击载荷：id=1' OR '1'='1
-[cite_start]curl -I "[http://192.168.113.132/login.php?id=1%27%20OR%20%271%27=%271](http://192.168.113.132/login.php?id=1%27%20OR%20%271%27=%271)" [cite: 29]
+curl -I "[http://192.168.113.132/login.php?id=1%27%20OR%20%271%27=%271](http://192.168.113.132/login.php?id=1%27%20OR%20%271%27=%271)" 
 
 ```
 
