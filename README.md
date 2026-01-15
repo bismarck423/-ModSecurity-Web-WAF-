@@ -1,33 +1,5 @@
 # -ModSecurity-Web-WAF-
 在 Ubuntu 18.04 上部署 Apache + ModSecurity，并利用 OWASP CRS 防御 SQL 注入攻击 。
-
-这是一个已经为你排版好的 Markdown 内容。你可以将其复制并保存为 `README.md`。
-
----
-
-## 如何在 GitHub 中上传并显示截图
-
-要在 GitHub 报告中优雅地展示你的实验截图，建议采用以下步骤：
-
-1. 
-**整理本地文件夹**：在你的 Git 仓库根目录下创建一个名为 `images` 的文件夹 。
-
-
-2. 
-**存放截图**：将你的拓扑图、日志图、Wireshark 结果图放入该文件夹 。
-
-
-3. **在 Markdown 中引用**：使用以下语法引用图片：
-`![图片描述](images/你的文件名.png)`
-4. 
-**推送至 GitHub**：使用 `git add .`、`git commit` 和 `git push` 将图片和文档一起上传。GitHub 会自动解析路径并显示图片 。
-
-
-
----
-
-## README.md 完整内容
-
 ```markdown
 # 实验报告：基于 ModSecurity (WAF) 的 Web 攻击防护实战
 
