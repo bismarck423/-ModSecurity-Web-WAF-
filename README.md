@@ -4,13 +4,13 @@
 
 ## 1. 实验目标 🎯
 * 在 Ubuntu 18.04 上部署基础 Web 环境（Apache + PHP）。
-* 安装并配置 ModSecurity (WAF) 引擎 [cite: 4, 20]。
+* 安装并配置 ModSecurity (WAF) 引擎。
 * 使用 OWASP 核心规则集 (CRS) 拦截 SQL 注入等常见 Web 攻击 。
 * 通过 Wireshark 抓包分析攻击请求与拦截响应 。
 
 
 ## 2. 网络拓扑 🌐
-[cite_start]实验环境基于 EVE-NG 搭建，包含攻击者、防火墙网关及目标服务器 [cite: 10]。
+验环境基于 EVE-NG 搭建，包含攻击者、防火墙网关及目标服务器。
 
 ![网络拓扑图](images/topology.png) 
 
